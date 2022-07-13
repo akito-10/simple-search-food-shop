@@ -1,14 +1,10 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
   },
-  extends: [
-    "plugin:react/recommended",
-    "google",
-    "next/core-web-vitals",
-    "prettier",
-  ],
+  extends: ["next/core-web-vitals", "prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
