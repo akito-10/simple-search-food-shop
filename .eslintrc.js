@@ -139,14 +139,14 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["pages/**/*.tsx", "pages/api/**/*.ts", "next.config.js"],
+      files: ["pages/**/*.tsx", "pages/api/**/*.ts", "next.config.mjs"],
       rules: { "import/no-default-export": "off" },
     },
     {
       files: [
         "pages/**/*.tsx",
         "src/models/**/*.ts",
-        "next.config.js",
+        "next.config.mjs",
         "src/type/**/*.d.ts",
       ],
       rules: {
