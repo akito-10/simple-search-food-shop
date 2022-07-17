@@ -8,6 +8,7 @@ module.exports = {
   parserOptions: {
     project: "./tsconfig.json",
   },
+  ignorePatterns: [".eslintrc.*", "*.config.*"],
   settings: { tailwindcss: { groupByResponsive: true } },
   plugins: [
     "simple-import-sort",
@@ -94,48 +95,6 @@ module.exports = {
         aspects: ["invalidHref", "preferButton"],
       },
     ],
-    overrides: [
-      {
-        files: [
-          "playwright.config.ts",
-          "pages/**/*.tsx",
-          "pages/api/**/*.ts",
-          "next.config.mjs",
-        ],
-        rules: { "import/no-default-export": "off" },
-      },
-      {
-        files: [
-          "pages/**/*.tsx",
-          "src/models/**/*.ts",
-          "next.config.mjs",
-          "src/type/**/*.d.ts",
-        ],
-        rules: {
-          "@typescript-eslint/naming-convention": [
-            "error",
-            {
-              selector: ["typeAlias", "typeParameter"],
-              format: ["PascalCase"],
-            },
-            { selector: ["classProperty", "method"], format: ["camelCase"] },
-            {
-              selector: "variable",
-              types: ["boolean"],
-              format: ["PascalCase"],
-              prefix: ["is", "has", "should"],
-            },
-          ],
-        },
-      },
-      {
-        files: [
-          "**/__tests__/**/*.[jt]s?(x)",
-          "**/?(*.)+(spec|test).[jt]s?(x)",
-        ],
-        extends: ["plugin:testing-library/react"],
-      },
-    ],
   },
   overrides: [
     {
@@ -162,10 +121,6 @@ module.exports = {
           },
         ],
       },
-    },
-    {
-      files: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
-      extends: ["plugin:testing-library/react"],
     },
   ],
 };

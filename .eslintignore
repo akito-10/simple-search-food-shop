@@ -3,3 +3,4 @@
 **/.next/*
 /.eslintrc.js
 **/$path.ts
+/jest.config.ts

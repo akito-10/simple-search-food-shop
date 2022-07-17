@@ -7,6 +7,13 @@
     "dev:next": "next dev",
     "dev:path": "pathpida --enableStatic --ignorePath .gitignore --output src/lib --watch",
     "build": "pathpida --enableStatic --ignorePath .gitignore --output src/lib && next build",
+    "start": "next start",
+    "serve": "run-s build start",
+    "lint": "next lint",
+    "prettier": "prettier --check .",
+    "fix": "run-s -l -c fix:lint fix:prettier",
+    "fix:lint": "next lint --fix",
+    "fix:prettier": "prettier --write .",
     "test": "jest",
     "prepare": "husky install"
   },
