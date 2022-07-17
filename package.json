@@ -6,7 +6,8 @@
     "dev": "run-p dev:*",
     "dev:next": "next dev",
     "dev:path": "pathpida --enableStatic --ignorePath .gitignore --output src/lib --watch",
-    "build": "pathpida --enableStatic --ignorePath .gitignore --output src/lib && next build"
+    "build": "pathpida --enableStatic --ignorePath .gitignore --output src/lib && next build",
+    "test": "jest"
   },
   "dependencies": {
     "next": "12.2.2",
