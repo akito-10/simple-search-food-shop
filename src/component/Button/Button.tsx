@@ -22,16 +22,24 @@ const COLOR_CLASSNAMES: { [key in ButtonColor]: string } = {
  */
 export const Button: FC<{
   children: ReactNode;
+  className?: string;
   color?: ButtonColor;
   leftIcon?: ReactNode;
   onClick?: () => void;
   rightIcon?: ReactNode;
-}> = ({ children, color = "primary", leftIcon, onClick, rightIcon }) => {
+}> = ({
+  children,
+  className,
+  color = "primary",
+  leftIcon,
+  onClick,
+  rightIcon,
+}) => {
   const colorClassnames = COLOR_CLASSNAMES[color];
 
   return (
     <button
-      className={`flex w-fit items-center justify-between gap-1 rounded-sm px-4 py-2 ${colorClassnames}`}
+      className={`flex w-fit items-center justify-between gap-1 rounded-sm px-4 py-2 ${colorClassnames} ${className}`}
       onClick={onClick}
     >
       {leftIcon}
