@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://webservice.recruit.co.jp",
+  baseURL: "http://webservice.recruit.co.jp/hotpepper/",
   responseType: "json",
   headers: {
     "Content-Type": "application/json",
