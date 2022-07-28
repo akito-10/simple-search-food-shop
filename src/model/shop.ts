@@ -21,6 +21,7 @@ export type ShopApiRow = {
       s: string;
     };
   };
+  name: string;
   card: string;
   open: string;
   midnight: string;

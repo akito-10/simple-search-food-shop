@@ -11,6 +11,7 @@ export const convertShops = (shops: ShopApiRow[] | undefined): ShopRow[] => {
     catch: shop.catch,
     couponUrls: shop.coupon_urls,
     photo: shop.photo,
+    name: shop.name,
     card: shop.card,
     open: shop.open,
     midnight: shop.midnight,
