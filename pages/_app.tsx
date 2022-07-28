@@ -1,17 +1,21 @@
 import "src/styles/globals.css";
 
 import type { AppProps } from "next/app";
+import { Provider } from "react-redux";
 import { axios } from "src/lib/axios.config";
+import { store } from "src/state";
 import { SWRConfig } from "swr";
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
-  <SWRConfig
-    value={{
-      fetcher: (url) => axios.get(url).then((res) => res.data),
-    }}
-  >
-    <Component {...pageProps} />
-  </SWRConfig>
+  <Provider store={store}>
+    <SWRConfig
+      value={{
+        fetcher: (url) => axios.get(url).then((res) => res.data),
+      }}
+    >
+      <Component {...pageProps} />
+    </SWRConfig>
+  </Provider>
 );
 
 export default MyApp;
