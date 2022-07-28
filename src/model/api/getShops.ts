@@ -9,6 +9,6 @@ export type GetShopsApi = {
     midnight: number;
   };
   response: {
-    shop: ShopApiRow[];
+    results: { shop: ShopApiRow[] };
   };
 };

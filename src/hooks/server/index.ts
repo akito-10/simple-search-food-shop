@@ -1,0 +1,1 @@
+export { useGetShops } from "./useGetShops";

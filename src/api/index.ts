@@ -1,0 +1,1 @@
+export { useGourmandSearch } from "./useGourmandSearch";
