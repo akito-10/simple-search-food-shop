@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import Slider from "react-slick";
 import { useGetShops } from "src/hooks/server";
+import { HotpepperIcon } from "src/pagesComponent/main/HotpepperIcon";
 import { ShopCard } from "src/pagesComponent/main/ShopCard";
 
 const SLIDER_SETTINGS = {
@@ -32,17 +33,7 @@ export const Main: FC = () => {
           ))}
         </Slider>
       ) : null}
-      <a href="http://webservice.recruit.co.jp/">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="http://webservice.recruit.co.jp/banner/hotpepper-s.gif"
-          alt="ホットペッパー Webサービス"
-          className="mt-8"
-          width="135"
-          height="17"
-          title="ホットペッパー Webサービス"
-        />
-      </a>
+      <HotpepperIcon />
     </div>
   );
 };
