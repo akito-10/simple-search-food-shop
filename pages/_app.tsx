@@ -15,6 +15,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       <SWRConfig
         value={{
           fetcher: (url) => axios.get(url).then((res) => res.data),
+          suspense: true,
         }}
       >
         <Component {...pageProps} />
