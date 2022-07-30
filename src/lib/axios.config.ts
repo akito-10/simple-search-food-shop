@@ -2,7 +2,10 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://webservice.recruit.co.jp",
+  baseURL:
+    process.env.NODE_ENV === "production"
+      ? "http://webservice.recruit.co.jp/hotpepper/"
+      : "http://localhost:8000/",
   responseType: "json",
   headers: {
     "Content-Type": "application/json",

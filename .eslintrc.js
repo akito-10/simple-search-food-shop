@@ -37,7 +37,7 @@ module.exports = {
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
     "func-style": ["error", "expression"],
-    "arrow-body-style": ["error", "never"],
+    "arrow-body-style": ["error", "as-needed"],
     "no-restricted-imports": [
       "error",
       { paths: [{ name: "react", importNames: ["default"] }] },
@@ -104,7 +104,7 @@ module.exports = {
     {
       files: [
         "pages/**/*.tsx",
-        "src/models/**/*.ts",
+        "src/model/**/*.ts",
         "next.config.mjs",
         "src/type/**/*.d.ts",
       ],
