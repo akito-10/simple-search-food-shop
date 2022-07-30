@@ -1,41 +1,18 @@
+import { Skeleton } from "@mantine/core";
 import type { FC } from "react";
-import Slider from "react-slick";
-import { useGetShops } from "src/hooks/server";
+import { lazy } from "react";
+import { Suspense } from "react";
 import { HotpepperIcon } from "src/pagesComponent/main/HotpepperIcon";
 import { SearchConditionForm } from "src/pagesComponent/main/SearchConditionForm";
-import { ShopCard } from "src/pagesComponent/main/ShopCard";
 
-const SLIDER_SETTINGS = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
+const ShopCardArea = lazy(() => import("src/pagesComponent/main/ShopCardArea"));
 
-export const Main: FC = () => {
-  const shops = useGetShops();
-
-  return (
-    <div className="flex h-screen w-full flex-col items-center justify-center">
-      {shops ? (
-        <Slider className="w-[370px]" {...SLIDER_SETTINGS}>
-          {shops.map((shop) => (
-            <ShopCard
-              key={shop.id}
-              card={shop.card}
-              description={shop.catch}
-              midnight={shop.midnight}
-              name={shop.name}
-              openTime={shop.open}
-              src={shop.photo.mobile.l}
-              url={shop.urls.pc}
-            />
-          ))}
-        </Slider>
-      ) : null}
-      <SearchConditionForm />
-      <HotpepperIcon />
-    </div>
-  );
-};
+export const Main: FC = () => (
+  <div className="flex h-screen w-full flex-col items-center justify-center">
+    <Suspense fallback={<Skeleton width={320} height={500} radius="md" />}>
+      <ShopCardArea />
+    </Suspense>
+    <SearchConditionForm />
+    <HotpepperIcon />
+  </div>
+);
