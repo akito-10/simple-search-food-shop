@@ -2,6 +2,7 @@ import type { FC } from "react";
 import Slider from "react-slick";
 import { useGetShops } from "src/hooks/server";
 import { HotpepperIcon } from "src/pagesComponent/main/HotpepperIcon";
+import { SearchConditionForm } from "src/pagesComponent/main/SearchConditionForm";
 import { ShopCard } from "src/pagesComponent/main/ShopCard";
 
 const SLIDER_SETTINGS = {
@@ -33,6 +34,7 @@ export const Main: FC = () => {
           ))}
         </Slider>
       ) : null}
+      <SearchConditionForm />
       <HotpepperIcon />
     </div>
   );

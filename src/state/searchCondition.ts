@@ -1,3 +1,4 @@
+import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 import type { SearchCondition } from "src/model/client/searchCondition";
 
@@ -11,17 +12,10 @@ const searchConditionSlice = createSlice({
   name: "searchCondition",
   initialState,
   reducers: {
-    setRange: (state, action) => {
-      state.range = action.payload.range;
-    },
-    setCard: (state, action) => {
-      state.card = action.payload.card;
-    },
-    setMidnight: (state, action) => {
-      state.midnight = action.payload.midnight;
-    },
+    setSearchCondition: (state, action: PayloadAction<SearchCondition>) =>
+      (state = action.payload),
   },
 });
 
-export const { setCard, setMidnight, setRange } = searchConditionSlice.actions;
+export const { setSearchCondition } = searchConditionSlice.actions;
 export const searchConditionReducer = searchConditionSlice.reducer;
