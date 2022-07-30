@@ -31,15 +31,15 @@ export const Button: FC<{
   children,
   className,
   color = "primary",
-  leftIcon,
+  leftIcon = <span></span>,
   onClick,
-  rightIcon,
+  rightIcon = <span></span>,
 }) => {
   const colorClassnames = COLOR_CLASSNAMES[color];
 
   return (
     <button
-      className={`flex w-fit items-center justify-between gap-1 rounded-sm px-4 py-2 ${colorClassnames} ${className}`}
+      className={`flex items-center justify-between gap-1 rounded-sm px-4 py-2  ${colorClassnames} ${className}`}
       onClick={onClick}
     >
       {leftIcon}
