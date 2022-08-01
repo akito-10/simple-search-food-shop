@@ -1,7 +1,9 @@
 /* eslint-disable import/no-default-export */
+import { useDisclosure } from "@mantine/hooks";
 import type { FC } from "react";
 import Slider from "react-slick";
 import { useGetShops } from "src/hooks/server";
+import { DirectionMapModal } from "src/pagesComponent/main/DirectionMapModal";
 import { ShopCard } from "src/pagesComponent/main/ShopCard";
 
 const SLIDER_SETTINGS = {
@@ -17,23 +19,30 @@ const SLIDER_SETTINGS = {
  */
 const ShopCardArea: FC = () => {
   const shops = useGetShops();
+  const [isMapModalOpen, handleMapModal] = useDisclosure(false);
 
-  return shops ? (
-    <Slider className="w-[370px]" {...SLIDER_SETTINGS}>
-      {shops.map((shop) => (
-        <ShopCard
-          key={shop.id}
-          card={shop.card}
-          description={shop.catch}
-          midnight={shop.midnight}
-          name={shop.name}
-          openTime={shop.open}
-          src={shop.photo.mobile.l}
-          url={shop.urls.pc}
-        />
-      ))}
-    </Slider>
-  ) : null;
+  return (
+    <>
+      {shops ? (
+        <Slider className="w-[370px]" {...SLIDER_SETTINGS}>
+          {shops.map((shop) => (
+            <ShopCard
+              key={shop.id}
+              description={shop.catch}
+              onModalOpen={handleMapModal.open}
+              src={shop.photo.mobile.l}
+              url={shop.urls.pc}
+              {...shop}
+            />
+          ))}
+        </Slider>
+      ) : null}
+      <DirectionMapModal
+        isMapModalOpen={isMapModalOpen}
+        onClose={handleMapModal.close}
+      />
+    </>
+  );
 };
 
 export default ShopCardArea;
